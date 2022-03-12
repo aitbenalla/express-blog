@@ -1,1 +1,1 @@
-# express-blog
+# A Blog Using Node, Express, MongoDB
