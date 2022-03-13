@@ -9,6 +9,8 @@ const app = express()
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use(express.static('public'));
 
 mongoose.connect('mongodb://localhost/express-blog', {
     useNewUrlParser: true, useUnifiedTopology: true
@@ -16,7 +18,7 @@ mongoose.connect('mongodb://localhost/express-blog', {
 
 app.get('/', async (req, res) => {
     const posts = await Post.find().sort({ createdAt: 'desc' })
-    res.render('posts/index', { posts: posts })
+    res.render('index', { posts: posts })
 })
 
 app.use('/posts', postRouter)

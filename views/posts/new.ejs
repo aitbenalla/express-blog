@@ -1,7 +1,10 @@
-<div class="container">
+<%- include("../components/head"); -%>
+<%- include("../components/navbar"); -%>
+<div class="container py-4">
     <h1 class="mb-4">New Article</h1>
 
     <form action="/posts" method="POST">
         <%- include('_form_fields') %>
     </form>
 </div>
+<%- include("../components/footer"); -%>
